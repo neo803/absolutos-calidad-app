@@ -55,14 +55,14 @@ Aplicación web de capacitación sobre los 5 Absolutos de Calidad de Bechtel par
 
 ## 📊 Contenido del Curso
 
-### Módulos Principales (28 preguntas basadas en la PPT)
-- **PARAR**: 4 preguntas sobre cuándo detenerse y el poder de hacer preguntas
-- **SEGUIR**: 4 preguntas sobre seguimiento de procedimientos y tu rol como cliente
+### Módulos Principales (24 preguntas basadas en Slides 8-12 de la PPT)
+- **PARAR**: 3 preguntas sobre cuándo detenerse y cómo hacerlo
+- **SEGUIR**: 4 preguntas sobre conocer procedimientos y usar revisión correcta
 - **CONDUCTA**: 4 preguntas sobre revisiones interactivas de trabajo
-- **ADHERIR**: 4 preguntas sobre puntos de verificación y personal competente
-- **POSEER**: 4 preguntas sobre responsabilidad de firma
+- **ADHERIR**: 4 preguntas sobre puntos de verificación y personal calificado
+- **POSEER**: 4 preguntas sobre responsabilidad de firma y revisión del trabajo
 
-### Casos de Estudio (8 preguntas)
+### Casos de Estudio (8 preguntas basadas en Slides 14-22)
 - **Caso 1**: Dos errores hacen que una tubería se rompa - Eric y el área 5
 - **Caso 2**: El tiempo es esencial - David y las zapatas de hormigón
 - **Caso 3**: Una solución rápida - El puente temporal sobre el río

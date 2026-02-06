@@ -205,17 +205,6 @@ const modules = [
                 ], 
                 correct: 1, 
                 exp: "Evite racionalizar las preguntas buscando respuestas objetivas. Debes hacer preguntas y obtener respuestas verificadas, no asumir o justificar."
-            },
-            {
-                q: "Según el Slide 26, ¿qué poder debes tener al aplicar 'Detenerse cuando no esté seguro'?",
-                opts: [
-                    "El poder de delegar tareas",
-                    "El poder de hacer preguntas",
-                    "El poder de cancelar procedimientos",
-                    "El poder de aprobar desviaciones"
-                ],
-                correct: 1,
-                exp: "Deténgase cuando no esté seguro: tenga el poder de hacer preguntas. Este es un derecho fundamental de todos los trabajadores para garantizar la calidad."
             }
         ]
     },
@@ -238,6 +227,17 @@ const modules = [
                 exp: "Seguir Procedimientos significa: Conocer los procedimientos para el trabajo que se está realizando y comprobar que está utilizando la revisión correcta."
             },
             { 
+                q: "¿Qué debes comprobar al seguir procedimientos?", 
+                opts: [
+                    "Que el documento esté firmado", 
+                    "Que está utilizando la revisión correcta", 
+                    "Que todos lo hayan leído", 
+                    "Que esté en formato digital"
+                ], 
+                correct: 1, 
+                exp: "Compruebe que está utilizando la revisión correcta del procedimiento. Usar una versión desactualizada puede causar problemas graves."
+            },
+            { 
                 q: "¿Qué debes evitar al seguir procedimientos?", 
                 opts: [
                     "Verificar la revisión correcta del documento", 
@@ -258,17 +258,6 @@ const modules = [
                 ], 
                 correct: 1, 
                 exp: "Si tiene que ocurrir una desviación, obtenga los documentos requeridos que indiquen que la desviación es permitida. No se permiten desviaciones verbales."
-            },
-            {
-                q: "Según el Slide 26, ¿cómo se describe tu rol en el proceso al seguir procedimientos?",
-                opts: [
-                    "Eres un observador del proceso",
-                    "Eres un 'cliente' que debe saber qué esperar de su 'proveedor'",
-                    "Eres únicamente un ejecutor de tareas",
-                    "Eres el responsable final de todo el proceso"
-                ],
-                correct: 1,
-                exp: "Conozca su lugar en el proceso; usted es un 'cliente', así que sepa qué esperar de su 'proveedor' y sepa lo que su 'cliente' espera de usted."
             }
         ]
     },
@@ -313,15 +302,15 @@ const modules = [
                 exp: "El personal involucrado en las instrucciones previas al trabajo debe verificar que es apto y calificado para la tarea en cuestión."
             },
             {
-                q: "Según el Slide 26, ¿cómo deben ser las revisiones de trabajo?",
+                q: "¿Qué deben cubrir las revisiones posteriores al trabajo?",
                 opts: [
-                    "Rápidas y directas al punto",
-                    "No un monólogo, hacer preguntas, interactuar",
-                    "Documentadas pero no necesariamente interactivas",
-                    "Dirigidas únicamente por el supervisor"
+                    "Solo si hubo problemas",
+                    "Lo que salió bien y lo que no para mejorar el rendimiento futuro o abordar cualquier problema",
+                    "Únicamente el tiempo empleado",
+                    "Solo los aspectos de seguridad"
                 ],
                 correct: 1,
-                exp: "Realizar revisiones del trabajo, no un monólogo, hacer preguntas, interactuar. La participación activa es esencial para la efectividad."
+                exp: "Las revisiones de trabajo posteriores deben cubrir lo que salió bien y lo que no para mejorar el rendimiento futuro o abordar cualquier problema."
             }
         ]
     },
@@ -355,6 +344,17 @@ const modules = [
                 exp: "Comprenda qué pasos requieren verificación antes de continuar. Es fundamental conocer todos los puntos de retención aplicables a tu trabajo."
             },
             { 
+                q: "¿Quién debe realizar la verificación en puntos de retención?", 
+                opts: [
+                    "Cualquier persona disponible", 
+                    "Solo el supervisor del proyecto", 
+                    "Personal calificado para hacerlo", 
+                    "El cliente exclusivamente"
+                ], 
+                correct: 2, 
+                exp: "Asegúrese de que el personal involucrado en la verificación esté calificado para hacerlo. La competencia es clave en los puntos de retención."
+            },
+            { 
                 q: "¿Qué debes evitar respecto a los puntos de espera/retención?", 
                 opts: [
                     "Documentarlos en el ITP", 
@@ -364,17 +364,6 @@ const modules = [
                 ], 
                 correct: 1, 
                 exp: "Evita pensar que los puntos de espera no se aplican a ti. Todos los puntos de retención aplican a todas las personas involucradas en el proceso."
-            },
-            {
-                q: "Según el Slide 26, ¿qué característica deben tener las personas que verifican en puntos de retención?",
-                opts: [
-                    "Deben tener antigüedad en el proyecto",
-                    "Deben ser personas competentes que conocen los criterios con los que están verificando",
-                    "Deben ser siempre supervisores",
-                    "Deben tener título universitario"
-                ],
-                correct: 1,
-                exp: "Puntos de verificación y espera: personas competentes que verifican o presencian: conocen los criterios con los que está verificando."
             }
         ]
     },
@@ -419,15 +408,15 @@ const modules = [
                 exp: "Evite firmar por trabajos que no realizó, verificó, administró o supervisó. Solo firma por trabajo del cual eres directamente responsable."
             },
             {
-                q: "Según el Slide 26, ¿qué acción adicional debes hacer respecto a tu firma?",
+                q: "¿Qué debes hacer antes de firmar o enviar electrónicamente?",
                 opts: [
-                    "Archivar una copia de todo lo que firmas",
-                    "Verificar su trabajo y solo firme por el trabajo del que es responsable",
-                    "Notificar a tu supervisor cada vez que firmas",
-                    "Usar siempre tinta azul"
+                    "Esperar aprobación del supervisor",
+                    "Revisar su trabajo antes de firmarlo o enviarlo electrónicamente",
+                    "Verificar que todos hayan firmado",
+                    "Solicitar una segunda revisión"
                 ],
                 correct: 1,
-                exp: "Sea dueño de su firma: verifique su trabajo y solo firme por el trabajo del que es responsable. La responsabilidad personal es clave."
+                exp: "Revise su trabajo antes de firmarlo o enviarlo electrónicamente. Tu firma es tu garantía de calidad."
             }
         ]
     },
