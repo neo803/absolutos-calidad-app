@@ -1,13 +1,14 @@
 // State management
 let state = {
-    screen: 'home',
+    screen: loadUserData() ? 'home' : 'register',
     module: null,
     question: 0,
     selected: null,
     showExplanation: false,
     score: 0,
     completed: loadCompleted(),
-    answers: []
+    answers: [],
+    userData: loadUserData()
 };
 
 // Load completed modules from localStorage
@@ -27,6 +28,141 @@ function saveCompleted() {
     } catch (e) {
         console.error('Error saving progress');
     }
+}
+
+// Load user data from localStorage
+function loadUserData() {
+    try {
+        const saved = localStorage.getItem('userData');
+        return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+// Save user data to localStorage
+function saveUserData(userData) {
+    try {
+        localStorage.setItem('userData', JSON.stringify(userData));
+    } catch (e) {
+        console.error('Error saving user data');
+    }
+}
+
+// Save evaluation result
+function saveEvaluationResult(result) {
+    try {
+        const history = JSON.parse(localStorage.getItem('evaluationHistory') || '[]');
+        history.push(result);
+        localStorage.setItem('evaluationHistory', JSON.stringify(history));
+    } catch (e) {
+        console.error('Error saving evaluation result');
+    }
+}
+
+// Get evaluation history
+function getEvaluationHistory() {
+    try {
+        return JSON.parse(localStorage.getItem('evaluationHistory') || '[]');
+    } catch (e) {
+        return [];
+    }
+}
+
+// Export evaluation history to CSV
+function exportToCSV() {
+    const history = getEvaluationHistory();
+    
+    if (history.length === 0) {
+        alert('No hay evaluaciones para exportar');
+        return;
+    }
+    
+    // CSV Headers
+    let csv = 'Fecha,Hora,Nombre,Apellido,Empresa,Correo,Módulo,Pregunta,Respuesta Seleccionada,Respuesta Correcta,Resultado,Puntuación Total,Porcentaje\n';
+    
+    // Add data rows
+    history.forEach(eval => {
+        eval.answers.forEach((answer, index) => {
+            const question = eval.questions[answer.questionIndex];
+            const selectedOption = question.opts[answer.selectedAnswer];
+            const correctOption = question.opts[question.correct];
+            
+            csv += `"${eval.date}","${eval.time}","${eval.userData.firstName}","${eval.userData.lastName}","${eval.userData.company}","${eval.userData.email}","${eval.moduleName}","${question.q.replace(/"/g, '""')}","${selectedOption.replace(/"/g, '""')}","${correctOption.replace(/"/g, '""')}","${answer.isCorrect ? 'Correcta' : 'Incorrecta'}","${eval.score}/${eval.totalQuestions}","${eval.percentage}%"\n`;
+        });
+    });
+    
+    // Create download link
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    
+    link.setAttribute('href', url);
+    link.setAttribute('download', `Evaluaciones_Absolutos_Calidad_${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Export individual evaluation result
+function exportCurrentResult() {
+    const m = state.module;
+    const percentage = Math.round((state.score / m.questions.length) * 100);
+    const now = new Date();
+    
+    const result = {
+        date: now.toISOString().split('T')[0],
+        time: now.toTimeString().split(' ')[0],
+        userData: state.userData,
+        moduleName: m.title,
+        moduleSubtitle: m.subtitle,
+        score: state.score,
+        totalQuestions: m.questions.length,
+        percentage: percentage,
+        answers: state.answers,
+        questions: m.questions
+    };
+    
+    // Save to history
+    saveEvaluationResult(result);
+    
+    // Generate CSV for this evaluation
+    let csv = 'Información del Participante\n';
+    csv += `Nombre,${state.userData.firstName}\n`;
+    csv += `Apellido,${state.userData.lastName}\n`;
+    csv += `Empresa,${state.userData.company}\n`;
+    csv += `Correo,${state.userData.email}\n`;
+    csv += `Fecha,${result.date}\n`;
+    csv += `Hora,${result.time}\n`;
+    csv += `\nMódulo,${m.title} - ${m.subtitle}\n`;
+    csv += `Puntuación,${state.score}/${m.questions.length}\n`;
+    csv += `Porcentaje,${percentage}%\n`;
+    csv += '\n\nDetalle de Respuestas\n';
+    csv += 'Pregunta,Respuesta Seleccionada,Respuesta Correcta,Resultado\n';
+    
+    state.answers.forEach((answer, index) => {
+        const question = m.questions[answer.questionIndex];
+        const selectedOption = question.opts[answer.selectedAnswer];
+        const correctOption = question.opts[question.correct];
+        
+        csv += `"${question.q.replace(/"/g, '""')}","${selectedOption.replace(/"/g, '""')}","${correctOption.replace(/"/g, '""')}","${answer.isCorrect ? 'Correcta' : 'Incorrecta'}"\n`;
+    });
+    
+    // Create download
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    
+    const fileName = `Evaluacion_${m.title}_${state.userData.firstName}_${state.userData.lastName}_${result.date}.csv`;
+    link.setAttribute('href', url);
+    link.setAttribute('download', fileName);
+    link.style.visibility = 'hidden';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 const modules = [
@@ -405,22 +541,110 @@ const colorMap = {
 
 function render() {
     const app = document.getElementById('app');
-    if (state.screen === 'home') app.innerHTML = renderHome();
+    if (state.screen === 'register') app.innerHTML = renderRegister();
+    else if (state.screen === 'home') app.innerHTML = renderHome();
     else if (state.screen === 'quiz') app.innerHTML = renderQuiz();
     else if (state.screen === 'results') app.innerHTML = renderResults();
 }
 
+function renderRegister() {
+    return `
+        <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 pb-safe flex items-center justify-center">
+            <div class="max-w-md w-full">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="h-12 mb-6 flex items-center justify-center">
+                        <span class="text-3xl font-bold text-blue-900">BECHTEL</span>
+                    </div>
+                    
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2 text-center">Absolutos de Calidad</h1>
+                    <p class="text-gray-600 text-sm text-center mb-8">Yanacocha AWTP - QUA1004</p>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-700 text-center mb-6">Por favor, ingresa tus datos para comenzar la capacitación:</p>
+                        
+                        <form id="registerForm" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre *</label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    required
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none transition-colors"
+                                    placeholder="Ingresa tu nombre"
+                                >
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Apellido *</label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    required
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none transition-colors"
+                                    placeholder="Ingresa tu apellido"
+                                >
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Empresa *</label>
+                                <input 
+                                    type="text" 
+                                    id="company" 
+                                    required
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none transition-colors"
+                                    placeholder="Ej: Bechtel, Newmont, etc."
+                                >
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Correo Electrónico *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    required
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none transition-colors"
+                                    placeholder="tu.correo@empresa.com"
+                                >
+                            </div>
+                            
+                            <button 
+                                type="submit"
+                                class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 transition-colors mt-6"
+                            >
+                                Comenzar Capacitación →
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500 text-center mt-4">
+                        * Campos obligatorios. Tus datos se guardan localmente en tu dispositivo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 function renderHome() {
     const progress = (state.completed.length / modules.length) * 100;
+    const userName = state.userData ? `${state.userData.firstName} ${state.userData.lastName}` : '';
+    
     return `
         <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 pb-safe">
             <div class="max-w-2xl mx-auto">
                 <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
-                    <div class="h-12 mb-4 flex items-center">
-                        <span class="text-3xl font-bold text-blue-900">BECHTEL</span>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="h-12 flex items-center">
+                            <span class="text-3xl font-bold text-blue-900">BECHTEL</span>
+                        </div>
+                        <button onclick="editUserData()" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">
+                            ⚙️ Editar datos
+                        </button>
                     </div>
                     <h1 class="text-3xl font-bold text-gray-800 mb-2">Absolutos de Calidad</h1>
                     <p class="text-gray-600 text-sm">Yanacocha AWTP - QUA1004</p>
+                    ${userName ? `<p class="text-indigo-600 font-semibold mt-3">👤 ${userName}</p>` : ''}
+                    ${state.userData ? `<p class="text-gray-600 text-sm">${state.userData.company} • ${state.userData.email}</p>` : ''}
                 </div>
 
                 <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
@@ -428,9 +652,14 @@ function renderHome() {
                         <h2 class="text-xl font-bold text-gray-800">🏆 Tu Progreso</h2>
                         <span class="text-2xl font-bold text-indigo-600">${state.completed.length}/${modules.length}</span>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
                         <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-3 rounded-full transition-all duration-500" style="width: ${progress}%"></div>
                     </div>
+                    ${getEvaluationHistory().length > 0 ? `
+                        <button onclick="exportToCSV()" class="w-full mt-4 border-2 border-indigo-500 text-indigo-600 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-all flex items-center justify-center gap-2">
+                            📊 Exportar Todas las Evaluaciones (${getEvaluationHistory().length})
+                        </button>
+                    ` : ''}
                 </div>
 
                 <div class="space-y-4">
@@ -601,6 +830,10 @@ function renderResults() {
                     </div>
 
                     <div class="space-y-3">
+                        <button onclick="exportCurrentResult()" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition-all flex items-center justify-center gap-2">
+                            📥 Descargar Resultado (CSV)
+                        </button>
+                        
                         <button onclick="retry()" class="${colors.bg} text-white py-4 rounded-xl font-bold text-lg w-full hover:opacity-90 transition-all">
                             🔄 Reintentar Módulo
                         </button>
@@ -686,5 +919,53 @@ function backToHome() {
     window.scrollTo(0, 0);
 }
 
+function handleRegisterSubmit(e) {
+    e.preventDefault();
+    const userData = {
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        registeredAt: new Date().toISOString()
+    };
+    
+    state.userData = userData;
+    saveUserData(userData);
+    state.screen = 'home';
+    render();
+    window.scrollTo(0, 0);
+}
+
+function editUserData() {
+    state.screen = 'register';
+    render();
+    window.scrollTo(0, 0);
+    
+    // Pre-fill form if userData exists
+    if (state.userData) {
+        setTimeout(() => {
+            const form = document.getElementById('registerForm');
+            if (form) {
+                document.getElementById('firstName').value = state.userData.firstName || '';
+                document.getElementById('lastName').value = state.userData.lastName || '';
+                document.getElementById('company').value = state.userData.company || '';
+                document.getElementById('email').value = state.userData.email || '';
+                form.addEventListener('submit', handleRegisterSubmit);
+            }
+        }, 100);
+    }
+}
+
+// Initialize app and attach event listeners
+function initApp() {
+    render();
+    
+    // Attach form submit handler if on register screen
+    const form = document.getElementById('registerForm');
+    if (form) {
+        form.addEventListener('submit', handleRegisterSubmit);
+    }
+}
+
 // Initialize app
-render();
+initApp();
