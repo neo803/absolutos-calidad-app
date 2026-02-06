@@ -38,37 +38,48 @@ const modules = [
         color: "red",
         questions: [
             { 
-                q: "¿Cuándo debes detenerte según el Absoluto de Calidad?", 
+                q: "Según la presentación, ¿cuándo debes detenerte?", 
                 opts: [
-                    "Solo cuando haya un accidente", 
-                    "Cuando las cosas no parezcan correctas o no tengas experiencia", 
-                    "Únicamente si el supervisor lo ordena", 
-                    "Solamente en situaciones de emergencia"
+                    "Solo cuando haya una emergencia de seguridad", 
+                    "Cuando las cosas no parezcan correctas o si no tienes experiencia con la tarea", 
+                    "Únicamente cuando lo ordene el supervisor", 
+                    "Solo al finalizar la jornada laboral"
                 ], 
                 correct: 1, 
-                exp: "Debes detenerte cuando las cosas no parezcan correctas, si no tienes experiencia con la tarea, o si surgen confusiones, incertidumbre o condiciones inesperadas."
+                exp: "Detente cuando las cosas no parezcan correctas o si no tienes experiencia con la tarea que tienes entre manos. También debes detener el trabajo si surgen confusiones, incertidumbre o condiciones inesperadas."
             },
             { 
-                q: "Antes de detenerte, ¿qué debes hacer primero?", 
+                q: "Antes de detenerte, ¿qué debes asegurar?", 
                 opts: [
-                    "Abandonar inmediatamente el área de trabajo", 
-                    "Esperar instrucciones del cliente", 
-                    "Asegurarte de que los sistemas estén en estado seguro", 
-                    "Completar la tarea actual"
+                    "Que todos los compañeros estén informados", 
+                    "Que el trabajo esté al 50% completado", 
+                    "Que los sistemas y procesos estén en un estado seguro", 
+                    "Que el cliente haya aprobado la detención"
                 ], 
                 correct: 2, 
-                exp: "Debes asegurarte de que los sistemas y procesos estén en un estado seguro antes de detenerte, y luego notificar a tu supervisor inmediato."
+                exp: "Asegúrese de que los sistemas y procesos estén en un estado seguro antes de detenerse, luego notifique a su supervisor inmediato."
             },
             { 
-                q: "¿Qué debes evitar al detenerte cuando no estás seguro?", 
+                q: "¿Qué debes evitar al aplicar 'Detenerse cuando no esté seguro'?", 
                 opts: [
                     "Notificar a tu supervisor", 
                     "Racionalizar las preguntas buscando respuestas objetivas", 
-                    "Asegurar los sistemas", 
-                    "Documentar la situación"
+                    "Detener el trabajo temporalmente", 
+                    "Asegurar los sistemas"
                 ], 
                 correct: 1, 
-                exp: "Debes evitar racionalizar las preguntas. Es importante buscar respuestas objetivas y verificadas, no asumir."
+                exp: "Evite racionalizar las preguntas buscando respuestas objetivas. Debes hacer preguntas y obtener respuestas verificadas, no asumir o justificar."
+            },
+            {
+                q: "Según el Slide 26, ¿qué poder debes tener al aplicar 'Detenerse cuando no esté seguro'?",
+                opts: [
+                    "El poder de delegar tareas",
+                    "El poder de hacer preguntas",
+                    "El poder de cancelar procedimientos",
+                    "El poder de aprobar desviaciones"
+                ],
+                correct: 1,
+                exp: "Deténgase cuando no esté seguro: tenga el poder de hacer preguntas. Este es un derecho fundamental de todos los trabajadores para garantizar la calidad."
             }
         ]
     },
@@ -80,37 +91,48 @@ const modules = [
         color: "blue",
         questions: [
             { 
-                q: "¿Qué significa 'Seguir Procedimientos'?", 
+                q: "¿Qué significa 'Seguir Procedimientos' según la presentación?", 
                 opts: [
-                    "Leer los procedimientos después de terminar el trabajo", 
-                    "Conocer los procedimientos y usar la revisión correcta", 
-                    "Seguir únicamente los procedimientos principales", 
-                    "Usar resúmenes en lugar de documentos completos"
+                    "Leer el procedimiento al finalizar el trabajo", 
+                    "Conocer los procedimientos para el trabajo que se está realizando", 
+                    "Seguir solo los procedimientos críticos", 
+                    "Memorizar todos los procedimientos del proyecto"
                 ], 
                 correct: 1, 
-                exp: "Significa conocer los procedimientos para el trabajo que se está realizando y comprobar que estás utilizando la revisión correcta del documento controlado."
+                exp: "Seguir Procedimientos significa: Conocer los procedimientos para el trabajo que se está realizando y comprobar que está utilizando la revisión correcta."
             },
             { 
                 q: "¿Qué debes evitar al seguir procedimientos?", 
                 opts: [
-                    "Verificar la revisión del documento", 
-                    "Saltarse pasos o usar archivos adjuntos en lugar del documento controlado", 
-                    "Consultar con supervisores", 
-                    "Documentar el trabajo realizado"
+                    "Verificar la revisión correcta del documento", 
+                    "Saltarse pasos o usar archivos adjuntos en lugar de todo el documento controlado", 
+                    "Consultar dudas con el supervisor", 
+                    "Leer el procedimiento antes de iniciar"
                 ], 
                 correct: 1, 
-                exp: "Debes evitar saltarse pasos o usar archivos adjuntos en lugar de todo el documento controlado. Cada paso tiene su importancia."
+                exp: "Evite saltarse pasos o usar archivos adjuntos en lugar de todo el documento controlado. Cada paso del procedimiento completo tiene una razón de ser."
             },
             { 
-                q: "Si necesitas hacer una desviación del procedimiento, ¿qué debes hacer?", 
+                q: "Si tiene que ocurrir una desviación del procedimiento, ¿qué debes hacer?", 
                 opts: [
-                    "Proceder si tienes experiencia suficiente", 
+                    "Proceder si tienes suficiente experiencia", 
                     "Obtener los documentos requeridos que indiquen que la desviación es permitida", 
-                    "Notificar después de completar el trabajo", 
-                    "Documentar la desviación en tus notas personales"
+                    "Notificar verbalmente al supervisor", 
+                    "Documentarlo en tu reporte diario"
                 ], 
                 correct: 1, 
-                exp: "Si tiene que ocurrir una desviación, debes obtener los documentos requeridos que indiquen que la desviación es permitida antes de proceder."
+                exp: "Si tiene que ocurrir una desviación, obtenga los documentos requeridos que indiquen que la desviación es permitida. No se permiten desviaciones verbales."
+            },
+            {
+                q: "Según el Slide 26, ¿cómo se describe tu rol en el proceso al seguir procedimientos?",
+                opts: [
+                    "Eres un observador del proceso",
+                    "Eres un 'cliente' que debe saber qué esperar de su 'proveedor'",
+                    "Eres únicamente un ejecutor de tareas",
+                    "Eres el responsable final de todo el proceso"
+                ],
+                correct: 1,
+                exp: "Conozca su lugar en el proceso; usted es un 'cliente', así que sepa qué esperar de su 'proveedor' y sepa lo que su 'cliente' espera de usted."
             }
         ]
     },
@@ -122,37 +144,48 @@ const modules = [
         color: "green",
         questions: [
             { 
-                q: "¿Cómo deben ser las revisiones previas al trabajo?", 
+                q: "¿Cómo deben ser las revisiones de trabajo según la presentación?", 
                 opts: [
-                    "Un monólogo del supervisor", 
-                    "Involucrar participantes principales, mantenerse comprometido y evitar monólogos", 
-                    "Solo leer una lista de verificación", 
-                    "Únicamente para trabajos de alto riesgo"
+                    "Un monólogo informativo del supervisor", 
+                    "Involucrar participantes principales, mantenerse comprometido y evitar un monólogo", 
+                    "Una simple lectura de la lista de verificación", 
+                    "Solo para trabajos de alto riesgo"
                 ], 
                 correct: 1, 
-                exp: "Las revisiones deben involucrar a los participantes principales, mantenerse comprometido y evitar un monólogo. Es un proceso interactivo."
+                exp: "Involucre a los participantes principales, manténgase comprometido y evite un monólogo. Las revisiones deben ser interactivas, no una presentación unidireccional."
             },
             { 
                 q: "¿Qué deben cubrir las revisiones previas al trabajo?", 
                 opts: [
-                    "Solo el cronograma del día", 
+                    "Solo el cronograma y asignaciones", 
                     "Únicamente los riesgos de seguridad", 
-                    "Propósito, asignaciones, riesgos, mitigación, lecciones previas y preguntas", 
-                    "Solamente quién será responsable"
+                    "El propósito, asignaciones, riesgos, mitigación, lecciones anteriores y cualquier pregunta", 
+                    "Solamente quién es responsable de cada tarea"
                 ], 
                 correct: 2, 
-                exp: "Deben cubrir el propósito y las asignaciones de la tarea, los riesgos y la mitigación, las lecciones anteriores y cualquier pregunta o inquietud."
+                exp: "Las revisiones previas al trabajo deben cubrir el propósito y las asignaciones de la tarea, los riesgos y la mitigación, las lecciones anteriores y cualquier pregunta o inquietud."
             },
             { 
-                q: "¿Qué deben cubrir las revisiones posteriores al trabajo?", 
+                q: "¿Qué debe verificar el personal en las instrucciones previas al trabajo?", 
                 opts: [
-                    "Solo si hubo problemas", 
-                    "Lo que salió bien y lo que no, para mejorar el rendimiento futuro", 
-                    "Únicamente el tiempo empleado", 
-                    "Solo los aspectos de seguridad"
+                    "Que tiene el equipo adecuado", 
+                    "Que es apto y calificado para la tarea en cuestión", 
+                    "Que conoce a todos los participantes", 
+                    "Que ha leído todos los procedimientos"
                 ], 
                 correct: 1, 
-                exp: "Las revisiones de trabajo posteriores deben cubrir lo que salió bien y lo que no para mejorar el rendimiento futuro o abordar cualquier problema."
+                exp: "El personal involucrado en las instrucciones previas al trabajo debe verificar que es apto y calificado para la tarea en cuestión."
+            },
+            {
+                q: "Según el Slide 26, ¿cómo deben ser las revisiones de trabajo?",
+                opts: [
+                    "Rápidas y directas al punto",
+                    "No un monólogo, hacer preguntas, interactuar",
+                    "Documentadas pero no necesariamente interactivas",
+                    "Dirigidas únicamente por el supervisor"
+                ],
+                correct: 1,
+                exp: "Realizar revisiones del trabajo, no un monólogo, hacer preguntas, interactuar. La participación activa es esencial para la efectividad."
             }
         ]
     },
@@ -164,37 +197,48 @@ const modules = [
         color: "yellow",
         questions: [
             { 
-                q: "¿Qué es un punto de retención?", 
+                q: "¿Qué es un punto de retención según la presentación?", 
                 opts: [
-                    "Una pausa para descanso", 
-                    "Un punto que requiere verificación y/o aprobación antes de continuar", 
-                    "Un lugar de almacenamiento temporal", 
-                    "Una reunión de equipo"
+                    "Un área de descanso para el personal", 
+                    "Un punto de un proceso que requiere verificación y/o aprobación antes de continuar", 
+                    "Un lugar de almacenamiento temporal de materiales", 
+                    "Una pausa obligatoria cada 4 horas"
                 ], 
                 correct: 1, 
                 exp: "Un punto de retención es un punto de un proceso que requiere verificación y/o aprobación antes de continuar con el siguiente paso."
             },
             { 
-                q: "¿Quién debe realizar la verificación en puntos de retención?", 
+                q: "¿Qué debes comprender al adherirse a puntos de verificación/retención?", 
                 opts: [
-                    "Cualquier persona disponible", 
-                    "Solo el supervisor del proyecto", 
-                    "Personal calificado para hacerlo", 
-                    "El cliente exclusivamente"
-                ], 
-                correct: 2, 
-                exp: "Debes asegurarte de que el personal involucrado en la verificación esté calificado para hacerlo. La competencia es clave."
-            },
-            { 
-                q: "¿Qué debes evitar respecto a los puntos de retención?", 
-                opts: [
-                    "Documentarlos adecuadamente", 
-                    "Pensar que los puntos de espera no se aplican a ti", 
-                    "Verificar con personal calificado", 
-                    "Seguir el ITP (Plan de Inspección y Prueba)"
+                    "Solo los puntos de retención críticos", 
+                    "Qué pasos requieren verificación antes de continuar", 
+                    "Únicamente tus responsabilidades personales", 
+                    "Solo los puntos que te asigna tu supervisor"
                 ], 
                 correct: 1, 
-                exp: "Debes evitar pensar que los puntos de espera no se aplican a ti. Todos los puntos de retención son importantes y aplican a todos."
+                exp: "Comprenda qué pasos requieren verificación antes de continuar. Es fundamental conocer todos los puntos de retención aplicables a tu trabajo."
+            },
+            { 
+                q: "¿Qué debes evitar respecto a los puntos de espera/retención?", 
+                opts: [
+                    "Documentarlos en el ITP", 
+                    "Pensar que los puntos de espera no se aplican a ti", 
+                    "Usar personal calificado para verificación", 
+                    "Seguir el procedimiento establecido"
+                ], 
+                correct: 1, 
+                exp: "Evita pensar que los puntos de espera no se aplican a ti. Todos los puntos de retención aplican a todas las personas involucradas en el proceso."
+            },
+            {
+                q: "Según el Slide 26, ¿qué característica deben tener las personas que verifican en puntos de retención?",
+                opts: [
+                    "Deben tener antigüedad en el proyecto",
+                    "Deben ser personas competentes que conocen los criterios con los que están verificando",
+                    "Deben ser siempre supervisores",
+                    "Deben tener título universitario"
+                ],
+                correct: 1,
+                exp: "Puntos de verificación y espera: personas competentes que verifican o presencian: conocen los criterios con los que está verificando."
             }
         ]
     },
@@ -206,37 +250,48 @@ const modules = [
         color: "purple",
         questions: [
             { 
-                q: "¿Qué significa 'Sé dueño de tu firma'?", 
+                q: "¿Qué significa 'Sé dueño de tu firma' según la presentación?", 
                 opts: [
-                    "Firmar todos los documentos del proyecto", 
-                    "Firmar para demostrar que estás dispuesto a respaldar el trabajo", 
-                    "Usar firma digital en lugar de manuscrita", 
-                    "Firmar solo documentos importantes"
+                    "Tener una firma legible y profesional", 
+                    "Firme para demostrar que está dispuesto a respaldar el trabajo", 
+                    "Firmar todos los documentos asignados", 
+                    "Usar siempre firma digital"
                 ], 
                 correct: 1, 
-                exp: "Significa firmar para demostrar que estás dispuesto a respaldar el trabajo y que verificaste que la información es correcta."
+                exp: "Firme para demostrar que está dispuesto a respaldar el trabajo. Tu firma es tu compromiso personal con la calidad del trabajo."
             },
             { 
-                q: "¿Cuándo NO debes firmar un documento?", 
+                q: "¿Qué debes verificar antes de firmar según la presentación?", 
                 opts: [
-                    "Cuando el supervisor te lo solicita", 
-                    "Cuando trabajos que no realizaste, verificaste, administraste o supervisaste", 
-                    "Cuando el documento es urgente", 
-                    "Cuando otros ya han firmado"
+                    "Que otros ya hayan firmado", 
+                    "Que la información que ha proporcionado sea correcta o que las acciones especificadas se hayan completado", 
+                    "Solo que el formato del documento sea correcto", 
+                    "Únicamente la fecha y hora"
                 ], 
                 correct: 1, 
-                exp: "Debes evitar firmar por trabajos que no realizaste, verificaste, administraste o supervisaste. Tu firma es tu responsabilidad personal."
+                exp: "Verifique que la información que ha proporcionado sea correcta o que las acciones especificadas se hayan completado antes de firmar."
             },
             { 
-                q: "¿Qué debes hacer antes de firmar?", 
+                q: "¿Por qué trabajos NO debes firmar?", 
                 opts: [
-                    "Esperar que otros firmen primero", 
-                    "Verificar que la información sea correcta y las acciones estén completadas", 
-                    "Solo leer el título del documento", 
-                    "Confirmar que el formato es correcto"
+                    "Por trabajos urgentes", 
+                    "Por trabajos que no realizó, verificó, administró o supervisó", 
+                    "Por trabajos en fin de semana", 
+                    "Por trabajos de subcontratistas"
                 ], 
                 correct: 1, 
-                exp: "Debes verificar que la información que has proporcionado sea correcta o que las acciones especificadas se hayan completado antes de firmar."
+                exp: "Evite firmar por trabajos que no realizó, verificó, administró o supervisó. Solo firma por trabajo del cual eres directamente responsable."
+            },
+            {
+                q: "Según el Slide 26, ¿qué acción adicional debes hacer respecto a tu firma?",
+                opts: [
+                    "Archivar una copia de todo lo que firmas",
+                    "Verificar su trabajo y solo firme por el trabajo del que es responsable",
+                    "Notificar a tu supervisor cada vez que firmas",
+                    "Usar siempre tinta azul"
+                ],
+                correct: 1,
+                exp: "Sea dueño de su firma: verifique su trabajo y solo firme por el trabajo del que es responsable. La responsabilidad personal es clave."
             }
         ]
     },
@@ -248,70 +303,92 @@ const modules = [
         color: "indigo",
         questions: [
             { 
-                q: "Caso 1 - Tubería Rota: ¿Qué absoluto violó Eric al no completar la verificación del área 5?", 
+                q: "Caso 1: ¿Qué asumió Eric que causó el problema?", 
                 opts: [
-                    "Parar cuando no esté seguro", 
-                    "Seguir procedimientos y Sé dueño de tu firma", 
-                    "Realizar revisiones de trabajo", 
-                    "Adherirse a puntos de verificación"
+                    "Que el clima no sería tan frío", 
+                    "Que el área 5 también cumpliría con el ITP dado que las áreas previas estaban correctas", 
+                    "Que el subcontratista era muy confiable", 
+                    "Que había tiempo suficiente para verificar después"
                 ], 
                 correct: 1, 
-                exp: "Eric violó 'Seguir procedimientos' (debía revisar todas las áreas según el ITP) y 'Sé dueño de tu firma' (asumió en vez de verificar)."
+                exp: "Eric asumió que el área 5 también cumpliría con el ITP dado que las áreas previas estaban correctas. Decidió no completar la verificación, violando 'Seguir Procedimientos'."
             },
             { 
-                q: "Caso 1: ¿Cuál fue la consecuencia de no drenar las tuberías del área 5?", 
+                q: "Caso 1: ¿Qué consecuencias tuvo el agua congelada en las tuberías?", 
                 opts: [
-                    "Solo un retraso menor en el cronograma", 
-                    "Rotura de tuberías, daño a estructura de hormigón y reemplazo completo", 
-                    "Multa económica solamente", 
-                    "Advertencia verbal al equipo"
+                    "Solo un retraso de una semana", 
+                    "Rotura de tuberías, daño a estructura de hormigón, apuntalamiento temporal y reemplazo completo", 
+                    "Multa económica del cliente", 
+                    "Reemplazo solo de las tuberías"
                 ], 
                 correct: 1, 
-                exp: "El agua de prueba se congeló causando rotura de dos tuberías de acero de 18\", daño a la estructura de soporte de hormigón, requiriendo apuntalamiento temporal, demolición y reemplazo completo."
+                exp: "El agua de prueba en dos tuberías de acero de 18\" se congeló causando: rotura de las tuberías por expansión del hielo, daño a la estructura de soporte de hormigón. Se requirió instalación de apuntalamiento temporal de emergencia, demolición y reemplazo del hormigón armado, y reemplazo completo de las tuberías."
             },
             { 
-                q: "Caso 2 - Tiempo Esencial: ¿Qué absoluto ignoró David al autorizar el vaciado bajo presión?", 
+                q: "Caso 2: ¿Cuántos incidentes previos había tenido el proyecto de David?", 
                 opts: [
-                    "Sé dueño de tu firma", 
-                    "Adherirse a puntos de verificación/retención", 
-                    "Seguir procedimientos", 
-                    "Realizar revisiones de trabajo"
+                    "Ninguno, este fue el primero", 
+                    "Dos incidentes donde se procedió sin cumplir inspecciones de puntos de retención", 
+                    "Cinco incidentes menores", 
+                    "Un incidente similar"
                 ], 
                 correct: 1, 
-                exp: "David ignoró 'Adherirse a puntos de verificación/retención' al autorizar el vaciado sin completar las inspecciones de puntos de retención requeridas por el ITP."
+                exp: "Ya habían ocurrido dos incidentes en el año donde el equipo de construcción procedió con colocación de hormigón sin cumplir con las inspecciones de puntos de retención requeridas."
             },
             { 
-                q: "Caso 2: ¿Cuál fue el impacto de vaciar sin inspecciones de retención?", 
+                q: "Caso 2: ¿Qué se vaciaron sin realizar las inspecciones requeridas?", 
                 opts: [
-                    "Solo una amonestación verbal", 
-                    "Stop Work Order y suspensión de todas las actividades de hormigonado", 
-                    "Retraso de un día", 
-                    "Revisión de procedimientos únicamente"
+                    "Tres columnas de hormigón", 
+                    "Cuatro zapatas de hormigón", 
+                    "Cinco losas de fundación", 
+                    "Dos muros de contención"
                 ], 
                 correct: 1, 
-                exp: "Se emitió una Stop Work Order y se suspendieron todas las actividades de hormigonado del proyecto, paralizando actividades críticas."
+                exp: "Se vaciaron cuatro zapatas de hormigón sin realizar las inspecciones de puntos de retención requeridas por el Plan de Inspección y Pruebas (ITP)."
             },
             { 
-                q: "Caso 3 - Solución Rápida: ¿Qué absoluto faltó en el proyecto del puente temporal?", 
+                q: "Caso 2: ¿Qué acción drástica se tomó como consecuencia?", 
                 opts: [
-                    "Parar cuando no esté seguro", 
-                    "Seguir procedimientos (no existía procedimiento de obras temporales)", 
-                    "Sé dueño de tu firma", 
-                    "Realizar revisiones de trabajo"
+                    "Se cambió al supervisor del proyecto", 
+                    "Se emitió una orden de detención de trabajo (Stop Work Order)", 
+                    "Se canceló el contrato del subcontratista", 
+                    "Se redujo el presupuesto del proyecto"
                 ], 
                 correct: 1, 
-                exp: "El proyecto no contaba con un procedimiento de obras temporales, violando 'Seguir procedimientos'. El diseño avanzó con participación mínima de ingeniería."
+                exp: "Se emitió una orden de detención de trabajo (Stop Work Order) y se suspendieron todas las actividades de hormigonado del proyecto."
             },
             { 
-                q: "Caso 3: ¿Cuál es la lección clave de este caso?", 
+                q: "Caso 3: ¿Qué NO tenía el proyecto al momento de decidir construir el puente?", 
                 opts: [
-                    "Los puentes temporales no son importantes", 
-                    "'Temporal' no significa 'menos importante' - todas las estructuras requieren ingeniería adecuada", 
-                    "Solo proyectos permanentes necesitan supervisión", 
-                    "Los subcontratistas no necesitan supervisión en obras temporales"
+                    "Presupuesto aprobado", 
+                    "Un procedimiento de obras temporales", 
+                    "Personal calificado", 
+                    "Autorización del cliente"
                 ], 
                 correct: 1, 
-                exp: "'Temporal' no significa 'menos importante' - todas las estructuras requieren ingeniería adecuada, supervisión y seguimiento de procedimientos."
+                exp: "En el momento de tomar la decisión, el proyecto no contaba con un procedimiento de obras temporales. A pesar de esto, la construcción del puente se adjudicó."
+            },
+            {
+                q: "Caso 3: ¿Qué le pasó al puente temporal?",
+                opts: [
+                    "Se completó exitosamente",
+                    "El caudal del río aumentó y el puente resultó gravemente dañado y fue abandonado",
+                    "Se vendió a otro proyecto",
+                    "Se convirtió en estructura permanente"
+                ],
+                correct: 1,
+                exp: "Semanas después, a mitad de construcción del puente, el caudal del río aumentó repentinamente. El puente resultó gravemente dañado. El daño fue tan extenso que el puente fue abandonado y nunca se completó."
+            },
+            {
+                q: "Caso 3: ¿Cuál es la lección clave según la presentación?",
+                opts: [
+                    "Las obras temporales no requieren supervisión",
+                    "'Temporal' no significa 'menos importante' - todas las estructuras requieren ingeniería adecuada",
+                    "Los subcontratistas deben ser más experimentados",
+                    "Los ríos estacionales son impredecibles"
+                ],
+                correct: 1,
+                exp: "Lección Clave: 'Temporal' no significa 'menos importante' - todas las estructuras requieren ingeniería adecuada, supervisión y seguimiento de procedimientos."
             }
         ]
     }
