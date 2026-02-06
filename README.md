@@ -55,17 +55,17 @@ Aplicación web de capacitación sobre los 5 Absolutos de Calidad de Bechtel par
 
 ## 📊 Contenido del Curso
 
-### Módulos Principales
-- **PARAR**: 3 preguntas sobre cuándo y cómo detenerse
-- **SEGUIR**: 3 preguntas sobre seguimiento de procedimientos
-- **CONDUCTA**: 3 preguntas sobre revisiones de trabajo
-- **ADHERIR**: 3 preguntas sobre puntos de verificación
-- **POSEER**: 3 preguntas sobre responsabilidad de firma
+### Módulos Principales (28 preguntas basadas en la PPT)
+- **PARAR**: 4 preguntas sobre cuándo detenerse y el poder de hacer preguntas
+- **SEGUIR**: 4 preguntas sobre seguimiento de procedimientos y tu rol como cliente
+- **CONDUCTA**: 4 preguntas sobre revisiones interactivas de trabajo
+- **ADHERIR**: 4 preguntas sobre puntos de verificación y personal competente
+- **POSEER**: 4 preguntas sobre responsabilidad de firma
 
-### Casos de Estudio
-- **Caso 1**: Tubería Rota - Consecuencias de no seguir procedimientos
-- **Caso 2**: Tiempo Esencial - Importancia de puntos de retención
-- **Caso 3**: Solución Rápida - "Temporal" no significa menos importante
+### Casos de Estudio (8 preguntas)
+- **Caso 1**: Dos errores hacen que una tubería se rompa - Eric y el área 5
+- **Caso 2**: El tiempo es esencial - David y las zapatas de hormigón
+- **Caso 3**: Una solución rápida - El puente temporal sobre el río
 
 ## 💾 Almacenamiento de Datos
 
